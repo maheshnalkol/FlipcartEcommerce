@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Iproduct } from '../models/product';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  BASE_URL: string = environment.baseurl;
+  PRODUCT_URL: string = `${this.BASE_URL}/products`;
   productArr: Array<Iproduct> = [
     {
       _id: '67cfe4411d3eb582dacee84c',
@@ -917,9 +922,13 @@ export class ProductService {
     },
   ];
 
-  constructor() {}
+  constructor(private _http: HttpClient) {}
 
-  fetchAllproduct() {
-    return this.productArr;
+  fetchAllproduct(): Observable<Iproduct[]> {
+    return this._http.get<Iproduct[]>(this.PRODUCT_URL);
+  }
+
+  getPRodObj(prodId: string): Observable<Iproduct> {
+    return this._http.get<Iproduct>(`${this.PRODUCT_URL}/${prodId}`);
   }
 }

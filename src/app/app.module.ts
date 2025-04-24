@@ -10,6 +10,7 @@ import { ProductsComponent } from './shared/components/products/products.compone
 import { ProdformComponent } from './shared/components/prodform/prodform.component';
 import { UsersComponent } from './shared/components/users/users.component';
 import { MaterialModule } from './shared/material/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { MaterialModule } from './shared/material/material.module';
     ProdformComponent,
     UsersComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MaterialModule],
+  imports: [BrowserModule, AppRoutingModule, MaterialModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

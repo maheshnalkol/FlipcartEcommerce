@@ -19,7 +19,8 @@
     "target": "es2020",
     "module": "es2020",
     "lib": ["es2020", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@angular/common/http"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

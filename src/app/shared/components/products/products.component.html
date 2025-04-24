@@ -1,5 +1,5 @@
 <div class="row mt-5">
-  <div class="col-md-3 col-sm-4 mb-3" *ngFor="let prod of productArr">
+  <div class="col-lg-2 col-md-3 col-sm-4 mb-3" *ngFor="let prod of productArr">
     <mat-card
       [routerLink]="prod._id"
       class="h-100 matcard p-0 py-2"
@@ -35,7 +35,7 @@
           </li>
           <li>
             <button
-              (click)="onwhishlist(); $event.stopPropagation()"
+              (click)="onwhishlist($event)"
               mat-mini-fab
               matTooltipPosition="left"
               matTooltip="Add to whishlist"
@@ -48,6 +48,10 @@
           </li>
           <li>
             <button
+
+
+            (click)="onPreview(prod)"
+
               [routerLink]="prod._id"
               mat-mini-fab
               matTooltipPosition="left"

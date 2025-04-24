@@ -13,9 +13,15 @@ export class ProductsComponent implements OnInit {
   constructor(private _productService: ProductService) {}
 
   ngOnInit(): void {
-    this.productArr = this._productService.fetchAllproduct();
+    this._productService.fetchAllproduct().subscribe((s) => {
+      this.productArr = s;
+      console.log(this.productArr);
+    });
   }
-  onwhishlist() {
+  onwhishlist(eve: Event) {
+    eve.stopPropagation();
     this.isInWhishlist = !this.isInWhishlist;
   }
+
+  onPreview(prod: Iproduct) {}
 }

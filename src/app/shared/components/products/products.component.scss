@@ -32,7 +32,7 @@
   top: 5%;
   right: -30%;
   display: none;
-  transform: translate3d(120%, 0, 0);
+  transition: 0.5s ease-in-out;
   z-index: 1;
   ul {
     li {
@@ -50,11 +50,8 @@
   }
 }
 
-.matcard:hover {
-  transform: translateY(-5px);
-  .hovercard {
-    display: block;
-    right: 5%;
-    transform: translate3d(0, 0, 0);
-  }
+.matcard:hover .hovercard {
+  display: block;
+  right: 5%;
+  // transform: translate3d(0, 0, 0);
 }
