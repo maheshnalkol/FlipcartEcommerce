@@ -1,0 +1,68 @@
+<div class="row mt-5">
+  <div class="col-md-3 col-sm-4 mb-3" *ngFor="let prod of productArr">
+    <mat-card
+      [routerLink]="prod._id"
+      class="h-100 matcard p-0 py-2"
+      style="box-shadow: 2px 3px 10px 0px; cursor: pointer"
+    >
+      <mat-card-content>
+        <div class="Idmgcontain">
+          <img [src]="prod.images" [alt]="prod.title" />
+        </div>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <div class="info p-2">
+        <p class="category mb-0">
+          <strong>{{ prod.category | uppercase }}</strong>
+        </p>
+        <p class="title">
+          <b>{{ prod.title }}</b>
+        </p>
+        <small class="price"
+          ><b>{{ prod.total_price }}</b></small
+        >
+      </div>
+      <div class="hovercard">
+        <ul>
+          <li>
+            <button
+              mat-mini-fab
+              matTooltipPosition="left"
+              matTooltip="Add to cart"
+            >
+              <mat-icon>shopping_bag</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button
+              (click)="onwhishlist(); $event.stopPropagation()"
+              mat-mini-fab
+              matTooltipPosition="left"
+              matTooltip="Add to whishlist"
+              [ngClass]="{
+                liked: isInWhishlist
+              }"
+            >
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button
+              [routerLink]="prod._id"
+              mat-mini-fab
+              matTooltipPosition="left"
+              matTooltip="preview"
+            >
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-mini-fab matTooltipPosition="left" matTooltip="Compare">
+              <mat-icon>shuffle</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </mat-card>
+  </div>
+</div>
