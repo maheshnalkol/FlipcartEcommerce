@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseurl: 'https://ecom-backend-8pvf1atxs-maheshnalkols-projects.vercel.app/',
+  baseurl: 'http://localhost:3000',
 };
 
 /*
