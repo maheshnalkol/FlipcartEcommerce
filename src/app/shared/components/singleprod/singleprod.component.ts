@@ -11,6 +11,9 @@ import { ProductService } from '../../service/product.service';
 export class SingleprodComponent implements OnInit {
   prodObj!: Iproduct;
   prodId!: string;
+  stars = new Array(5);
+  rating!: number;
+  selectedImg!: string;
   constructor(
     private _routes: ActivatedRoute,
     private _prodService: ProductService
@@ -20,9 +23,25 @@ export class SingleprodComponent implements OnInit {
     this.prodId = this._routes.snapshot.params['prodId'];
     this._prodService.getPRodObj(this.prodId).subscribe((s) => {
       this.prodObj = s;
+      this.rating = s.rating;
+      this.selectedImg = s.images[0];
     });
   }
   fillWidth(): string {
     return `${(this.prodObj.rating / 5) * 100}%`;
+  }
+  getStarFill(index: number): string {
+    if (this.rating >= index + 1) {
+      return '100%'; // full star
+    } else if (this.rating > index) {
+      const fillPercent = ((this.rating - index) * 100).toFixed(0);
+      return `${fillPercent}%`; // partial star
+    } else {
+      return '0%'; // empty star
+    }
+  }
+
+  onchangeImg(img: string) {
+    this.selectedImg = img;
   }
 }

@@ -10,6 +10,9 @@ import { Iproduct } from '../../models/product';
 export class ProductsComponent implements OnInit {
   productArr: Iproduct[] = [];
   isInWhishlist: boolean = false;
+  productObj!: Iproduct;
+  // selectedImg: string = '';
+  hoveredProduct: any = null;
   constructor(private _productService: ProductService) {}
 
   ngOnInit(): void {
@@ -18,10 +21,14 @@ export class ProductsComponent implements OnInit {
       console.log(this.productArr);
     });
   }
-  onwhishlist(eve: Event) {
+  onwhishlist(eve: Event, id: string) {
     eve.stopPropagation();
     this.isInWhishlist = !this.isInWhishlist;
   }
+
+  // onhover() {
+  //   this.selectedImg = '';
+  // }
 
   onPreview(prod: Iproduct) {}
 }

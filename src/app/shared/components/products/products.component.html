@@ -2,12 +2,17 @@
   <div class="col-lg-2 col-md-3 col-sm-4 mb-3" *ngFor="let prod of productArr">
     <mat-card
       [routerLink]="prod._id"
-      class="h-100 matcard p-0 py-2"
+      class="h-100 matcard p-0"
       style="box-shadow: 2px 3px 10px 0px; cursor: pointer"
     >
       <mat-card-content>
-        <div class="Idmgcontain">
-          <img [src]="prod.images" [alt]="prod.title" />
+        <div class="Idmgcontain pt-2">
+          <img
+            (mouseenter)="hoveredProduct = prod"
+            (mouseleave)="hoveredProduct = null"
+            [src]="hoveredProduct === prod ? prod.images[1] : prod.images[0]"
+            [alt]="prod.title"
+          />
         </div>
       </mat-card-content>
       <mat-divider></mat-divider>
@@ -26,6 +31,7 @@
         <ul>
           <li>
             <button
+              class="mat-mini-fab"
               mat-mini-fab
               matTooltipPosition="left"
               matTooltip="Add to cart"
@@ -35,7 +41,7 @@
           </li>
           <li>
             <button
-              (click)="onwhishlist($event)"
+              (click)="onwhishlist($event, prod._id)"
               mat-mini-fab
               matTooltipPosition="left"
               matTooltip="Add to whishlist"
@@ -48,10 +54,7 @@
           </li>
           <li>
             <button
-
-
-            (click)="onPreview(prod)"
-
+              (click)="onPreview(prod)"
               [routerLink]="prod._id"
               mat-mini-fab
               matTooltipPosition="left"
