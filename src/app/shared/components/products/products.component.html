@@ -1,15 +1,14 @@
 <div class="row mt-5">
-  <div class="col-lg-2 col-md-3 col-sm-4 mb-3" *ngFor="let prod of productArr">
-    <mat-card
-      [routerLink]="prod._id"
-      class="h-100 matcard p-0"
-      style="box-shadow: 2px 3px 10px 0px; cursor: pointer"
-    >
+  <div
+    class="col-lg-2 col-md-3 col-sm-4 mb-3"
+    *ngFor="let prod of productArr; let i = index"
+  >
+    <mat-card [routerLink]="prod._id" class="h-100 matcard p-0">
       <mat-card-content>
         <div class="Idmgcontain pt-2">
           <img
-            (mouseenter)="hoveredProduct = prod"
-            (mouseleave)="hoveredProduct = null"
+            (mouseenter)="onmouseEnter(prod)"
+            (mouseleave)="onleave()"
             [src]="hoveredProduct === prod ? prod.images[1] : prod.images[0]"
             [alt]="prod.title"
           />
@@ -41,12 +40,12 @@
           </li>
           <li>
             <button
-              (click)="onwhishlist($event, prod._id)"
+              (click)="onwhishlist($event, prod, i)"
               mat-mini-fab
               matTooltipPosition="left"
               matTooltip="Add to whishlist"
               [ngClass]="{
-                liked: isInWhishlist
+                liked: whishlistMap[prod._id]
               }"
             >
               <mat-icon>favorite</mat-icon>

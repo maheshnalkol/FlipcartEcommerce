@@ -12,7 +12,8 @@ export class SingleprodComponent implements OnInit {
   prodObj!: Iproduct;
   prodId!: string;
   stars = new Array(5);
-  rating!: number;
+  // rating!: number;
+  rating: number = 70;
   selectedImg!: string;
   constructor(
     private _routes: ActivatedRoute,
