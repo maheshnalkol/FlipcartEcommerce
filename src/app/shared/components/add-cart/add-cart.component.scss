@@ -1,0 +1,51 @@
+.cart {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+  .shipping {
+    padding: 5px;
+    border: none;
+    font-weight: bold;
+    option {
+      padding: 2px;
+    }
+  }
+}
+
+.counts {
+  .minus {
+    height: 40px;
+    width: 40px;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba($color: #383737, $alpha: 0.1);
+    cursor: pointer;
+  }
+
+  .minus:hover {
+    color: red;
+  }
+
+  .num {
+    font-size: 20px;
+  }
+}
+.buttons {
+  .color1 {
+    background-color: rgb(255, 77, 0);
+  }
+  .color1:hover {
+    background-color: rgb(44, 42, 57);
+  }
+  .color {
+    background-color: rgb(44, 42, 57);
+  }
+  .color:hover {
+    background-color: rgb(255, 77, 0);
+  }
+}

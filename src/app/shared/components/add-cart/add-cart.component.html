@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="cart mb-2">
+      <li class="d-flex align-items-center mb-2">
+        <mat-icon class="mr-2">local_shipping</mat-icon> Free Shipping
+      </li>
+      <li>
+        Shipping to :
+        <select class="shipping" id="shipping">
+          <option value="home">Home</option>
+          <option value="office">Office</option>
+        </select>
+      </li>
+    </ul>
+    <p style="font-size: 20px">Quantity</p>
+    <div class="counts d-flex align-items-center mb-3">
+      <div (click)="oncountdecrease()" class="minus">
+        <mat-icon>remove</mat-icon>
+      </div>
+      <div class="num mx-3">{{ count }}</div>
+      <div (click)="oncountincrease()" class="minus">
+        <mat-icon>add</mat-icon>
+      </div>
+    </div>
+
+    <div class="buttons mb-3">
+      <button class="btn-block color1 text-white" mat-raised-button>
+        Add to cart <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button class="btn-block color text-white" mat-raised-button>
+        Buy now
+      </button>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { ProdformComponent } from './shared/components/prodform/prodform.compone
 import { UsersComponent } from './shared/components/users/users.component';
 import { MaterialModule } from './shared/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AddCartComponent } from './shared/components/add-cart/add-cart.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     ProdformComponent,
     UsersComponent,
+    AddCartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MaterialModule, HttpClientModule],
   providers: [],

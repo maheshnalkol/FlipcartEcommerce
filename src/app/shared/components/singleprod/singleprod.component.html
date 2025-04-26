@@ -1,7 +1,7 @@
 <mat-card class="m-2">
   <mat-card-content>
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-4">
         <div class="imgcontainer">
           <img [src]="selectedImg" [alt]="prodObj.title" />
         </div>
@@ -10,7 +10,7 @@
             <div
               (click)="onchangeImg(img)"
               class="imgContains"
-              *ngFor="let img of prodObj.images"
+              *ngFor="let img of prodObj.images.slice(0, 4)"
             >
               <li><img [src]="img" [alt]="prodObj.title" /></li>
             </div>
@@ -61,6 +61,23 @@
             </ng-container>
           </ul>
         </div>
+      </div>
+      <div class="col-md-3">
+        <mat-card class="position">
+          <mat-card-content>
+            <p class="cartprice">{{ prodObj.total_price }}</p>
+            <app-add-cart></app-add-cart>
+            <p class="details">Details</p>
+            <p *ngIf="prodObj.return_policy; else nopolicy">
+              {{ prodObj.return_policy }}
+            </p>
+            <ng-template #nopolicy>
+              <p class="alert alert-warning text-dark">
+                Return policy not avaible right now...!!
+              </p>
+            </ng-template>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
   </mat-card-content>
